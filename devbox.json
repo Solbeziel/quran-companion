@@ -1,0 +1,51 @@
+{
+  "$schema": "https://raw.githubusercontent.com/jetify-com/devbox/0.15.1/.schema/devbox.schema.json",
+  "packages": {
+    "go-task": "3.44.1",
+    "cmake": "3.31.7",
+    "ninja": "1.12.1",
+    "gcc": "14.3.0",
+    "libgcc": "14.3.0",
+    "libglvnd": "1.7.0",
+    "kdePackages.qttranslations": "6.8.0",
+    "kdePackages.qtwayland": "6.8.0",
+    "kdePackages.qtbase": {
+      "version": "6.8.0",
+      "outputs": [
+        "out",
+        "dev"
+      ]
+    },
+    "kdePackages.qtimageformats": {
+      "version": "6.8.0",
+      "outputs": [
+        "out",
+        "dev"
+      ]
+    },
+    "kdePackages.qtmultimedia": {
+      "version": "6.8.0",
+      "outputs": [
+        "out",
+        "dev"
+      ]
+    },
+    "kdePackages.qttools": {
+      "version": "6.8.0",
+      "outputs": [
+        "out",
+        "dev"
+      ]
+    }
+  },
+  "shell": {
+    "scripts": {
+      "release": [
+        "./build/Release/quran-companion"
+      ],
+      "dev": [
+        "./build/Debug/quran-companion"
+      ]
+    }
+  }
+}
