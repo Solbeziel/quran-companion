@@ -19,8 +19,7 @@ public:
 
 private:
   const QDir& m_downloadsDir = DirManager::getInstance().downloadsDir();
-  const QList<Translation>& m_translations =
-    Translation::translations;
+  const QList<Translation>& m_translations = Translation::translations;
   int m_idx;
 };
 

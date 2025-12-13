@@ -1,8 +1,4 @@
 version: "3"
-env:
-  CMAKE_BUILD_TYPE: Release
-  CMAKE_GENERATOR: Ninja Multi-Config
-  CMAKE_EXPORT_COMPILE_COMMANDS: 1
 vars:
   BUILD_DIR: "{{ .ROOT_DIR }}/build"
 tasks:

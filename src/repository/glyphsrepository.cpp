@@ -4,7 +4,7 @@
 GlyphsRepository&
 GlyphsRepository::getInstance()
 {
-    static GlyphsRepository gdb;
+  static GlyphsRepository gdb;
   return gdb;
 }
 
@@ -13,7 +13,7 @@ GlyphsRepository::GlyphsRepository()
   , m_config(Configuration::getInstance())
   , m_assetsDir(DirManager::getInstance().assetsDir())
 {
-    GlyphsRepository::open();
+  GlyphsRepository::open();
 }
 
 void

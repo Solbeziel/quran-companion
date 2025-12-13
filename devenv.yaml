@@ -2,3 +2,5 @@
 inputs:
   nixpkgs:
     url: github:cachix/devenv-nixpkgs/rolling
+  qt6-nixpkgs:
+    url: github:NixOS/nixpkgs/93ff48c9be84a76319dac293733df09bbbe3f25c

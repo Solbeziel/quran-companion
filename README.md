@@ -255,7 +255,6 @@ If you have a suggestion that would make this better, please fork the repo and c
 ### Documetation 📚
 
 - [Doxygen](https://www.doxygen.nl/) documentation is provided for the project, to generate the documentation preform the following steps
-
   - `git clone https://github.com/0xzer0x/quran-companion.git`
   - `cd quran-companion/docs`
   - `doxygen`

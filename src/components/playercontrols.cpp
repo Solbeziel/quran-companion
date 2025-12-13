@@ -39,8 +39,8 @@ PlayerControls::loadIcons()
   ui->btnStop->setIcon(awesome.icon(fa_solid, fa_stop));
   ui->btnRepeat->setIcon(awesome.icon(fa_solid, fa_rotate_right));
 
-  ui->lbSpeaker->setText(QString(fa_volume_high));
   ui->lbSpeaker->setFont(awesome.font(fa_solid, 16));
+  ui->lbSpeaker->setText(QChar(static_cast<int>(fa_volume_high)));
 }
 
 void

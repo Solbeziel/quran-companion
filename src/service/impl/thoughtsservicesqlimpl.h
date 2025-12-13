@@ -7,7 +7,7 @@
 class ThoughtsServiceSqlImpl : public ThoughtsService
 {
 private:
-    BookmarksRepository& m_thoughtsRepository;
+  BookmarksRepository& m_thoughtsRepository;
 
 public:
   ThoughtsServiceSqlImpl();

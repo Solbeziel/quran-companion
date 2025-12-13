@@ -110,11 +110,12 @@ ShortcutHandler::setupConnections()
 void
 ShortcutHandler::shortcutChanged(QString key)
 {
-  m_shortcuts.value(key)->setKey(qvariant_cast<QKeySequence>(
-    m_config.settings().value("Shortcuts/" + key)));
+  m_shortcuts.value(key)->setKey(
+    qvariant_cast<QKeySequence>(m_config.settings().value("Shortcuts/" + key)));
 }
 
-const QMap<QString, QString> &ShortcutHandler::shortcutsDescription() const
+const QMap<QString, QString>&
+ShortcutHandler::shortcutsDescription() const
 {
   return m_shortcutsDescription;
 }

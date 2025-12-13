@@ -15,7 +15,7 @@ class VersionChecker : public QObject
   Q_OBJECT
 public:
   explicit VersionChecker(QObject* parent = nullptr);
-  NotificationSender *notifier();
+  NotificationSender* notifier();
 
 public slots:
   void checkUpdates();

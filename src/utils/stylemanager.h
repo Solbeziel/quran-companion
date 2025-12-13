@@ -1,11 +1,11 @@
 #ifndef STYLEMANAGER_H
 #define STYLEMANAGER_H
 
+#include "configuration.h"
 #include <QDir>
 #include <QPointer>
 #include <QSharedPointer>
 #include <QtAwesome.h>
-#include "configuration.h"
 
 class StyleManager
 {
