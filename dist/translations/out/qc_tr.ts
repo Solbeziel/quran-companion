@@ -139,6 +139,11 @@
       <translation type="unfinished">Mohammad Al-Tablaway</translation>
     </message>
     <message>
+      <location filename="../main.cpp"/>
+      <source>Ahmed Neana</source>
+      <translation type="unfinished">Ahmed Neana</translation>
+    </message>
+    <message>
       <location filename="../../../src/components/mainwindow.ui" line="17"/>
       <location filename="../../../src/components/mainwindow.cpp" line="580"/>
       <location filename="../../../src/components/systemtray.cpp" line="15"/>
