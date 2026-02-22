@@ -95,6 +95,8 @@ private slots:
    */
   void btnRepeatClicked(bool on);
 
+  void cmbPlaybackRateChanged(QString newText);
+
 private:
   Ui::PlayerControls* ui;
   /**

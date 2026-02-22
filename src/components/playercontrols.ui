@@ -43,7 +43,7 @@
      <property name="frameShadow">
       <enum>QFrame::Shadow::Raised</enum>
      </property>
-     <layout class="QHBoxLayout" name="horizontalLayout" stretch="0,0,1,0,0,0,0,0,0">
+     <layout class="QHBoxLayout" name="horizontalLayout" stretch="0,0,1,0,0,0,0,0,0,0">
       <property name="leftMargin">
        <number>30</number>
       </property>
@@ -198,6 +198,71 @@
         <property name="styleSheet">
          <string notr="true">QPushButton { min-width: 40px; min-height: 25px; max-width: 50px; max-height: 25px; }</string>
         </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QComboBox" name="cmbPlaybackRate">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>52</width>
+          <height>27</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>60</width>
+          <height>27</height>
+         </size>
+        </property>
+        <property name="currentIndex">
+         <number>3</number>
+        </property>
+        <item>
+         <property name="text">
+          <string>0.25x</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>0.5x</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>0.75x</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>1x</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>1.25x</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>1.5x</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>1.75x</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>2x</string>
+         </property>
+        </item>
        </widget>
       </item>
       <item>
