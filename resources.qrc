@@ -3,8 +3,8 @@
         <file>resources/basmalah.png</file>
         <file>resources/dark/dark.qss</file>
         <file>resources/dark/dark.xml</file>
-        <file>resources/dark/icons/arrow-down.svg</file>
-        <file>resources/light/icons/arrow-down.svg</file>
+        <file>resources/dark/icons/arrow-down.png</file>
+        <file>resources/light/icons/arrow-down.png</file>
         <file>resources/light/light.qss</file>
         <file>resources/light/light.xml</file>
         <file>resources/light/sepia.qss</file>

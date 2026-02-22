@@ -100,30 +100,30 @@ NotificationPopup::adjustLocation()
 void
 NotificationPopup::setNotificationIcon(NotificationType type)
 {
-  QString ico;
+  QChar ico;
   int faStyle = fa_solid;
   switch (type) {
     case NotificationSender::info:
-      ico = fa_info_circle;
+      ico = QChar(static_cast<int>(fa_info_circle));
       break;
     case NotificationSender::success:
-      ico = fa_check_circle;
+      ico = QChar(static_cast<int>(fa_check_circle));
       break;
     case NotificationSender::fail:
-      ico = fa_xmark_circle;
+      ico = QChar(static_cast<int>(fa_xmark_circle));
       break;
     case NotificationSender::bookmarkAdd:
-      ico = fa_bookmark;
+      ico = QChar(static_cast<int>(fa_bookmark));
       break;
     case NotificationSender::bookmarkRemove:
-      ico = fa_bookmark;
+      ico = QChar(static_cast<int>(fa_bookmark));
       faStyle = fa_regular;
       break;
     case NotificationSender::copiedText:
-      ico = fa_clipboard;
+      ico = QChar(static_cast<int>(fa_clipboard));
       break;
     case NotificationSender::updateInfo:
-      ico = fa_circle_up;
+      ico = QChar(static_cast<int>(fa_circle_up));
       break;
   }
 

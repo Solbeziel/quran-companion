@@ -1,10 +1,4 @@
 version: "3"
-env:
-  CMAKE_BUILD_TYPE: Release
-  CMAKE_GENERATOR: Ninja Multi-Config
-  CMAKE_EXPORT_COMPILE_COMMANDS: 1
-  CMAKE_PREFIX_PATH:
-    sh: find "$HOME" -maxdepth 3 -path "$HOME/Qt/6.*/gcc_64" -type d | head -n 1
 vars:
   BUILD_DIR: "{{ .ROOT_DIR }}/build"
 tasks:
@@ -38,3 +32,6 @@ tasks:
   template.ts:
     cmds:
       - "{{ .ROOT_DIR }}/dist/translations/generate-template"
+
+  run:
+    cmd: "{{ .BUILD_DIR }}/{{ .CMAKE_BUILD_TYPE }}/quran-companion"

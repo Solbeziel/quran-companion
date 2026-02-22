@@ -3,7 +3,6 @@
 
 #include <types/verse.h>
 
-
 class ThoughtsService
 {
 public:

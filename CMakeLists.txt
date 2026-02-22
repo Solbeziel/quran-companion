@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.22)
 project(
   quran-companion
   LANGUAGES CXX
-  VERSION 1.3.3
+  VERSION 1.4.0
   DESCRIPTION "Quran reader and player"
   HOMEPAGE_URL "https://0xzer0x.github.io/projects/quran-companion/")
 
@@ -13,6 +13,14 @@ set(CMAKE_AUTORCC ON)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+set(CMAKE_EXPORT_COMPILE_COMMANDS
+    ON
+    CACHE INTERNAL "")
+if(CMAKE_EXPORT_COMPILE_COMMANDS)
+  set(CMAKE_CXX_STANDARD_INCLUDE_DIRECTORIES
+      ${CMAKE_CXX_IMPLICIT_INCLUDE_DIRECTORIES})
+endif()
 
 find_package(Qt6 REQUIRED COMPONENTS Widgets Sql Multimedia Network
                                      LinguistTools)

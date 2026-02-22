@@ -121,7 +121,7 @@ QString
 SurahJob::name()
 {
   return m_reciters.at(m_reciter).displayName() + " - " +
-           m_quranService->surahNames().at(m_surah - 1);
+         m_quranService->surahNames().at(m_surah - 1);
 }
 
 int

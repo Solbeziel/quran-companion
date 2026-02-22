@@ -18,3 +18,14 @@ compile_commands.json
 !update_translations.sh
 !docs/Doxyfile
 !dist/windows/online-installer/
+
+# Devenv
+.devenv*
+devenv.local.nix
+devenv.local.yaml
+
+# direnv
+.direnv
+
+# pre-commit
+.pre-commit-config.yaml

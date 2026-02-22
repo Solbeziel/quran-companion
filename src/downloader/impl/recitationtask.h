@@ -4,9 +4,9 @@
 #include <downloader/downloadtask.h>
 #include <repository/quranrepository.h>
 #include <service/quranservice.h>
+#include <service/servicefactory.h>
 #include <types/reciter.h>
 #include <utils/dirmanager.h>
-#include <service/servicefactory.h>
 
 class RecitationTask : public DownloadTask
 {

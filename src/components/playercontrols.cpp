@@ -2,6 +2,8 @@
 #include "ui_playercontrols.h"
 #include <QtAwesome.h>
 #include <algorithm>
+#include <qcombobox.h>
+#include <qmediaplayer.h>
 #include <utils/shortcuthandler.h>
 #include <utils/stylemanager.h>
 using namespace fa;
@@ -39,8 +41,8 @@ PlayerControls::loadIcons()
   ui->btnStop->setIcon(awesome.icon(fa_solid, fa_stop));
   ui->btnRepeat->setIcon(awesome.icon(fa_solid, fa_rotate_right));
 
-  ui->lbSpeaker->setText(QString(fa_volume_high));
   ui->lbSpeaker->setFont(awesome.font(fa_solid, 16));
+  ui->lbSpeaker->setText(QChar(static_cast<int>(fa_volume_high)));
 }
 
 void
@@ -96,6 +98,11 @@ PlayerControls::setupConnections()
           &QPushButton::toggled,
           this,
           &PlayerControls::btnRepeatClicked);
+
+  connect(ui->cmbPlaybackRate,
+          &QComboBox::currentTextChanged,
+          this,
+          &PlayerControls::cmbPlaybackRateChanged);
 }
 
 void
@@ -154,6 +161,18 @@ PlayerControls::cmbReciterChanged(int newIndex)
 {
   m_playbackController->player()->changeReciter(newIndex);
   m_repeater->playbackFinished();
+}
+
+void
+PlayerControls::cmbPlaybackRateChanged(QString newText)
+{
+  if (m_playbackController->player()->pitchCompensationAvailability() ==
+      QMediaPlayer::PitchCompensationAvailability::Available) {
+    m_playbackController->player()->setPitchCompensation(true);
+    newText.chop(1);
+    float playbackRate = newText.toFloat();
+    m_playbackController->player()->setPlaybackRate(playbackRate);
+  }
 }
 
 void

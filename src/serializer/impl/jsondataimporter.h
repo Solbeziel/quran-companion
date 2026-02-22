@@ -3,8 +3,8 @@
 
 #include <QJsonDocument>
 #include <QJsonObject>
-#include <serializer/userdataimporter.h>
 #include <repository/bookmarksrepository.h>
+#include <serializer/userdataimporter.h>
 #include <service/bookmarkservice.h>
 #include <service/khatmahservice.h>
 #include <service/thoughtsservice.h>

@@ -58,7 +58,7 @@ RecitationTask::destination() const
 {
   static const QString path = "recitations/%0/%1.mp3";
   return QFileInfo(m_downloadsDir.absoluteFilePath(
-      path.arg(m_reciters.at(m_reciter).baseDirName(),
+    path.arg(m_reciters.at(m_reciter).baseDirName(),
              QString::number(m_surah).rightJustified(3, '0') +
                QString::number(m_verse).rightJustified(3, '0'))));
 }

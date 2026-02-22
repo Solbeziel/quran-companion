@@ -116,7 +116,8 @@ QComboBox::drop-down {
 }
 
 QComboBox::down-arrow {
-  image: url(":/resources/light/icons/arrow-down.svg");
+  image: url(":/resources/light/icons/arrow-down.png");
+  width: 10px;
 }
 
 QFrame#repeaterFrame {
@@ -126,6 +127,26 @@ QFrame#repeaterFrame {
 }
 
 /* --------- Reader Styles --------- */
+
+VerseFrame[selected="true"],
+VerseFrame[selected="true"]:hover {
+  background-color: rgba(114, 97, 63, 90);
+  border-radius: 4px;
+}
+
+VerseFrame[selected="true"] QLabel,
+VerseFrame[selected="true"]:hover QLabel {
+  background-color: transparent;
+}
+
+VerseFrame[selected="false"]:hover {
+  background-color: rgba(114, 97, 63, 50);
+  border-radius: 4px;
+}
+
+VerseFrame[selected="false"]:hover QLabel {
+  background-color: transparent;
+}
 
 QFrame#frmReader {
   border: 1px solid #d9cdb8;
