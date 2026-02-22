@@ -23,7 +23,7 @@ apps:
     common-id: io.github._0xzer0x.qurancompanion
     desktop: usr/share/applications/io.github._0xzer0x.qurancompanion.desktop
     environment:
-      LD_LIBRARY_PATH: "$SNAP/opt/qt6/6.8.0/gcc_64/lib:$SNAP/usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR/pulseaudio:$LD_LIBRARY_PATH"
+      LD_LIBRARY_PATH: "$SNAP/opt/qt6/6.10.2/gcc_64/lib:$SNAP/usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR/pulseaudio:$LD_LIBRARY_PATH"
       PULSE_RUNTIME_PATH: "$XDG_RUNTIME_DIR/../pulse"
       WAYLAND_DISPLAY: "$XDG_RUNTIME_DIR/../wayland-0"
       QT_QPA_PLATFORM: "wayland-egl;xcb"
@@ -229,7 +229,7 @@ parts:
       - libxkbcommon-x11-0
       - zlib1g
     override-pull: |
-      QT=6.8.0
+      QT=6.10.2
       git clone -b v${QT} --depth=1 https://code.qt.io/qt/qt5.git .
       git submodule update --init --recursive --depth=1 qtbase qtdeclarative qtwayland qtimageformats qtsvg qtmultimedia qtshadertools qttools
     override-build: |
@@ -243,7 +243,7 @@ parts:
         -nomake examples \
         -nomake tests \
         -- -DFFMPEG_DIR=/usr -DQT_DEPLOY_FFMPEG=ON \
-        
+
       cmake --build . -j$CRAFT_PARALLEL_BUILD_COUNT
       DESTDIR="$CRAFT_PART_INSTALL" cmake --install .
     prime:
@@ -286,7 +286,7 @@ parts:
     cmake-parameters:
       - -DCMAKE_BUILD_TYPE=Release
       - -DCMAKE_INSTALL_PREFIX=/usr
-      - -DCMAKE_PREFIX_PATH="$CRAFT_STAGE/opt/qt6/6.8.0/gcc_64"
+      - -DCMAKE_PREFIX_PATH="$CRAFT_STAGE/opt/qt6/6.10.2/gcc_64"
     build-packages:
       - libpulse-dev
       - libsqlite3-dev

@@ -66,7 +66,7 @@ jobs:
         uses: jurplel/install-qt-action@v3
         with:
           aqtversion: ==3.1.*
-          version: 6.8.0
+          version: 6.10.2
           host: linux
           target: desktop
           arch: linux_gcc_64
@@ -74,7 +74,6 @@ jobs:
             qtimageformats
             qtmultimedia
             qtnetworkauth
-            qtwaylandcompositor
 
       - name: Install tools
         run: |
