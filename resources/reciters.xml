@@ -26,4 +26,6 @@
   <reciter basmallah="mjibreel.mp3" dirname="Muhammad_Jibreel" display="Muhammad Jibreel" id="23" url="https://quran.ksu.edu.sa/ayat/mp3/Muhammad_Jibreel_64kbps/" useid="0"></reciter>
   <reciter basmallah="warsh-ibrahim-aldosary.mp3" dirname="Ibrahim_Al-Dosary_(Warsh)" display="Ibrahim Al-Dosary (Warsh)" id="24" url="https://everyayah.com/data/warsh/warsh_ibrahim_aldosary_128kbps/" useid="0"></reciter>
   <reciter basmallah="warsh-yassin-al-jazaery.mp3" dirname="Yassin_Al-Jazaery_(Warsh)" display="Yassin Al-Jazaery (Warsh)" id="25" url="https://everyayah.com/data/warsh/warsh_yassin_al_jazaery_64kbps/" useid="0"></reciter>
+  <reciter basmallah="tablaway.mp3" dirname="Mohammad_Al-Tablaway" display="Mohammad Al-Tablaway" id="26" url="https://everyayah.com/data/Mohammad_al_Tablaway_128kbps/" useid="0"></reciter>
+  <reciter basmallah="neana.mp3" dirname="Ahmed_Neana" display="Ahmed Neana" id="27" url="https://everyayah.com/data/Ahmed_Neana_128kbps/" useid="0"></reciter>
 </reciters>
