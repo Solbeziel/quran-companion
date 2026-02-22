@@ -76,10 +76,10 @@ jobs:
             qtnetworkauth
 
       - name: Install tools
-        run: |
+        run: |-
           sudo apt update -y && sudo apt install wget fuse libxcb-cursor0 appstream appstream-util ninja-build -y
           wget https://github.com/probonopd/linuxdeployqt/releases/download/continuous/linuxdeployqt-continuous-x86_64.AppImage
-          wget https://github.com/AppImage/AppImageKit/releases/download/13/appimagetool-x86_64.AppImage
+          wget https://github.com/AppImage/appimagetool/releases/download/1.9.1/appimagetool-x86_64.AppImage
           chmod +x linuxdeployqt-continuous-x86_64.AppImage
           chmod +x appimagetool-x86_64.AppImage
 
@@ -122,16 +122,12 @@ jobs:
 
       - name: Run linuxdeployqt
         run: >-
-          rm
-          ${QT_PLUGIN_PATH}/sqldrivers/libqsqlmimer.so
-          ${QT_PLUGIN_PATH}/sqldrivers/libqsqlmysql.so
-          ${QT_PLUGIN_PATH}/sqldrivers/libqsqlodbc.so
-          ${QT_PLUGIN_PATH}/sqldrivers/libqsqlpsql.so
+          find "${QT_PLUGIN_PATH}/sqldrivers" -not -name 'libqsqlite.so' -type f -delete
 
           ${{github.workspace}}/linuxdeployqt-continuous-x86_64.AppImage
           QuranCompanion.AppDir/usr/bin/quran-companion
           -unsupported-allow-new-glibc -qmake=$(which qmake) -no-translations
-          -extra-plugins=sqldrivers,iconengines,imageformats,multimedia,networkinformation,platforms,platformthemes,wayland-decoration-client,wayland-graphics-integration-client,wayland-graphics-integration-server,wayland-shell-integration,xcbglintegrations,egldeviceintegrations
+          -extra-plugins=sqldrivers,iconengines,imageformats,multimedia,networkinformation,platforms,platformthemes,wayland-decoration-client,wayland-graphics-integration-client,wayland-shell-integration,xcbglintegrations,egldeviceintegrations
           -verbose=1
 
       - name: Make AppImage
@@ -177,7 +173,7 @@ jobs:
             qtnetworkauth
 
       - name: Install tools
-        run: |
+        run: |-
           brew install graphicsmagick imagemagick
           npm install --global create-dmg
 
@@ -190,19 +186,19 @@ jobs:
         run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
 
       - name: Make DMG
-        run: |
-          [[ -f "${QT_PLUGIN_PATH}/sqldrivers/libqsqlodbc.dylib" ]] && rm -rf ${QT_PLUGIN_PATH}/sqldrivers/libqsqlodbc.dylib
-          [[ -f "${QT_PLUGIN_PATH}/sqldrivers/libqsqlpsql.dylib" ]] && rm -rf ${QT_PLUGIN_PATH}/sqldrivers/libqsqlpsql.dylib
-          [[ -f "${QT_PLUGIN_PATH}/sqldrivers/libqsqlmimer.dylib" ]] && rm -rf ${QT_PLUGIN_PATH}/sqldrivers/libqsqlmimer.dylib
-          [[ -d "${QT_PLUGIN_PATH}/sqldrivers/libqsqlodbc.dylib.dSYM" ]] && rm -rf ${QT_PLUGIN_PATH}/sqldrivers/libqsqlodbc.dylib.dSYM
-          [[ -d "${QT_PLUGIN_PATH}/sqldrivers/libqsqlpsql.dylib.dSYM" ]] && rm -rf ${QT_PLUGIN_PATH}/sqldrivers/libqsqlpsql.dylib.dSYM
-          [[ -d "${QT_PLUGIN_PATH}/sqldrivers/libqsqlmimer.dylib.dSYM" ]] && rm -rf ${QT_PLUGIN_PATH}/sqldrivers/libqsqlmimer.dylib.dSYM
+        run: |-
+          find "${QT_PLUGIN_PATH}/sqldrivers" -mindepth 1 \
+            -not -name 'libqsqlite.dylib' \
+            -not -name 'libqsqlite.dylib.dSYM' \
+            -delete
+
           cd "${{github.workspace}}/build"
           macdeployqt quran-companion.app
           create-dmg --dmg-title="Install Quran Companion" quran-companion.app || true
-          file="$(find . -maxdepth 1 -name "Quran Companion*.dmg" | head -n 1)"
-          if [[ -n "$file" ]]; then
-            mv "$file" "${{ github.workspace }}/Quran_Companion-${{env.APP_VER}}-x86_64.dmg"
+
+          QC_DMG="$(find . -maxdepth 1 -name "Quran Companion*.dmg" | head -n 1)"
+          if [[ -n "${QC_DMG}" ]]; then
+            mv "${QC_DMG}" "${{ github.workspace }}/Quran_Companion-${{env.APP_VER}}-x86_64.dmg"
           else
             echo "DMG file not found!"
             exit 1
@@ -241,7 +237,7 @@ jobs:
           merge-multiple: true
 
       - name: Verify artifacts
-        run: |
+        run: |-
           if [[ ! -f "Quran_Companion-${{env.APP_VER}}-x86_64.AppImage" || ! -f "Quran_Companion-${{env.APP_VER}}-x86_64.dmg" ]]; then
             echo "Artifacts missing" >&2
             echo -e "ls -la:\n$(ls -la)" >&2
